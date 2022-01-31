@@ -1,0 +1,17 @@
+.photos-container {
+    width: 70%;
+    columns: 3;
+    column-gap: 24px;
+    margin: 0 auto;
+
+    .photo {
+        width: 300px;
+        height: 400px;
+        margin-bottom: 24px;
+        overflow: hidden;
+        
+        img {
+            width: 100%;
+        }
+    }
+}
