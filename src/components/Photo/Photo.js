@@ -5,6 +5,7 @@ const Photo = ({ photo }) => {
         <>
             <img src={photo.urls.regular} />
         </>
+
     )
 }
 
