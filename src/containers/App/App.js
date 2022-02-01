@@ -1,11 +1,9 @@
 import React, { useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-import { throttle } from 'lodash/fp';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { photosFetchRequested, morePhotosFetchRequested } from '../../actions/photos';
 import HomePage from '../HomePage/HomePage';
 import PhotoInformation from '../PhotoInformation/PhotoInformation';
-import { THROTTLE } from '../../helpers/photos';
 
 const App = () => {
   const location = useLocation();
@@ -19,7 +17,7 @@ const App = () => {
         page++;
         dispatch(morePhotosFetchRequested(page));
     }
-  }, [dispatch]);
+  }, [dispatch, page]);
 
   useEffect(() => {
       dispatch(photosFetchRequested());

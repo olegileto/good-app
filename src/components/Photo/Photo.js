@@ -2,7 +2,7 @@ import React from 'react';
 
 const Photo = ({ photo }) => {
     return (
-        <img src={photo.urls.regular} alt={photo.alt_description}/>
+        <img src={photo.urls.regular} alt={photo.description}/>
     )
 }
 
