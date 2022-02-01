@@ -1,6 +1,6 @@
-const KEY = '271b95bb56870e7f6904c7f38882ab6462b164d0cbb22355d9261ad4f60348fa';
-const basicURL = `https://api.unsplash.com/photos/?client_id=${KEY}`;
-const DEFAULT_PAGE = 1;
+import { DEFAULT_PAGE, URL, KEY } from './photos';
+
+const basicURL = `${URL}?client_id=${KEY}`;
 
 const Api = {
     fetchPhotos: async(page) => {

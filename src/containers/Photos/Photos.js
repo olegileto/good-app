@@ -19,7 +19,7 @@ const Photos = () => {
                  photos?.map(photo => {
                     return (
                         <Link
-                            key={photo.id}
+                            key={photo.blur_hash}
                             className='photo'
                             to={{pathname: `/photo/${photo.id}`}}
                             state={{backgroundLocation: location }}

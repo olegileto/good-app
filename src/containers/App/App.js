@@ -5,6 +5,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import { photosFetchRequested, morePhotosFetchRequested } from '../../actions/photos';
 import HomePage from '../HomePage/HomePage';
 import PhotoInformation from '../PhotoInformation/PhotoInformation';
+import { THROTTLE } from '../../helpers/photos';
 
 const App = () => {
   const location = useLocation();
@@ -13,10 +14,9 @@ const App = () => {
 
   let page = 1;
 
-  const handleScroll = throttle(300, () => {
+  const handleScroll = throttle(THROTTLE, () => {
     if ((window.innerHeight + window.pageYOffset + 400) >= (document.body.offsetHeight + 400)) {
         page++;
-        console.log('page', page);
         dispatch(morePhotosFetchRequested(page));
     }
   });
