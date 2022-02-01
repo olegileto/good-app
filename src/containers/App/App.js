@@ -1,18 +1,34 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { throttle } from 'lodash/fp';
 import { Routes, Route, useLocation } from 'react-router-dom';
-import { photosFetchRequested } from '../../actions/photos';
+import { photosFetchRequested, morePhotosFetchRequested } from '../../actions/photos';
 import HomePage from '../HomePage/HomePage';
-import Modal from '../../shared/Modal/Modal';
+import PhotoInformation from '../PhotoInformation/PhotoInformation';
 
 const App = () => {
   const location = useLocation();
   const dispatch = useDispatch();
   const state = location.state;
 
+  let page = 1;
+
+  const handleScroll = throttle(300, () => {
+    if ((window.innerHeight + window.pageYOffset + 400) >= (document.body.offsetHeight + 400)) {
+        page++;
+        console.log('page', page);
+        dispatch(morePhotosFetchRequested(page));
+    }
+  });
+
   useEffect(() => {
       dispatch(photosFetchRequested());
-  }, [dispatch]);
+      window.addEventListener("scroll", handleScroll);
+
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+  }, [dispatch, handleScroll]);
 
   return (
     <div className='app-container'>
@@ -22,7 +38,7 @@ const App = () => {
 
       {state?.backgroundLocation && (
         <Routes>
-          <Route path='/photo/:id' element={<Modal />} />
+          <Route path='/photo/:id' element={<PhotoInformation />} />
         </Routes>
       )}
     </div>
