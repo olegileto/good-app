@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { throttle } from 'lodash/fp';
 import { Routes, Route, useLocation } from 'react-router-dom';
@@ -14,12 +14,12 @@ const App = () => {
 
   let page = 1;
 
-  const handleScroll = throttle(THROTTLE, () => {
+  const handleScroll = useCallback(() => {
     if ((window.innerHeight + window.pageYOffset + 400) >= (document.body.offsetHeight + 400)) {
         page++;
         dispatch(morePhotosFetchRequested(page));
     }
-  });
+  }, [dispatch]);
 
   useEffect(() => {
       dispatch(photosFetchRequested());
