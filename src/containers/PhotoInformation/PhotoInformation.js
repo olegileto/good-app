@@ -26,6 +26,7 @@ const PhotoInformation = () => {
         <Modal
             onDismiss={handleDismiss}
             dismissRef={dismissRef}
+            item={photo}
         >
             <div className='photo-information'>
                 <div className='photo-container'>

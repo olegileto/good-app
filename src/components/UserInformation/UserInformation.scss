@@ -1,0 +1,23 @@
+.user-information {
+    cursor: pointer;
+    display: flex;
+
+    .user-profile-image {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .user-social {
+        margin-left: 10px;
+
+        .user-name {
+            display: block;
+        }
+    }
+}

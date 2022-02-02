@@ -6,7 +6,7 @@ import ModalBody from './ModalBody/ModalBody';
 import ModalFooter from './ModalFooter/ModalFooter';
 import './Modal.scss';
 
-const Modal = ({ onDismiss, dismissRef, children }) => {
+const Modal = ({ onDismiss, dismissRef, children, item }) => {
     return (
         <Dialog
             aria-labelledby="label"
@@ -17,6 +17,7 @@ const Modal = ({ onDismiss, dismissRef, children }) => {
             <ModalHeader 
                 onDismiss={onDismiss}
                 dismissRef={dismissRef}
+                item={item}
             />
             <ModalBody 
                 modalContent={children} 

@@ -9,11 +9,11 @@
         cursor: initial;
 
         .modal-header {
-            position: sticky;
-            top: 0;
             padding: 9px 12px;
             border-radius: 4px 4px 0 0;
             background-color: #fff;
+            display: flex;
+            justify-content: space-between;
 
             .dismiss-icon {
                 cursor: pointer;
