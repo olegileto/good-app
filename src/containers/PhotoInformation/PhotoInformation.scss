@@ -1,0 +1,18 @@
+.photo-information {
+    .photo-container {
+        margin: 0 auto;
+        text-align: center;
+
+        .zoom-in {
+           cursor: zoom-out;
+           width: 100%;
+           height: auto;
+        }
+
+        .zoom-out {
+            cursor: zoom-in;
+            width: 60%;
+            height: auto;
+        }
+    }
+}

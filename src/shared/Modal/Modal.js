@@ -1,6 +1,9 @@
 import React from 'react';
 import { Dialog } from "@reach/dialog";
 import "@reach/dialog/styles.css";
+import ModalHeader from './ModalHeader/ModalHeader';
+import ModalBody from './ModalBody/ModalBody';
+import ModalFooter from './ModalFooter/ModalFooter';
 import './Modal.scss';
 
 const Modal = ({ onDismiss, dismissRef, children }) => {
@@ -9,11 +12,16 @@ const Modal = ({ onDismiss, dismissRef, children }) => {
             aria-labelledby="label"
             onDismiss={onDismiss}
             initialFocusRef={dismissRef}
+            className='modal-dialog-window'
         >
-            <div className='modal-container'>
-                <span onClick={onDismiss} ref={dismissRef}>X</span>
-                {children}
-            </div>
+            <ModalHeader 
+                onDismiss={onDismiss}
+                dismissRef={dismissRef}
+            />
+            <ModalBody 
+                modalContent={children} 
+            />
+            <ModalFooter />
         </Dialog>
         
     )
