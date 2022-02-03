@@ -1,15 +1,13 @@
 import React from 'react';
 
-const Photo = ({ photo, size, onClick, isZoomed }) => {
+const Photo = ({ photo, size, onClick }) => {
     const defaultPhotoSize = !size ? 'regular' : size;
-    const classZoomed = isZoomed ? 'zoom-in' : 'zoom-out';
 
     return (
         <img 
             src={photo.urls[defaultPhotoSize]} 
             alt={photo.description}
             onClick={onClick}
-            className={classZoomed}
         />
     )
 }

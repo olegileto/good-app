@@ -8,19 +8,23 @@
         margin-top: 25px;
         cursor: initial;
 
-        .modal-header {
-            padding: 9px 12px;
-            border-radius: 4px 4px 0 0;
-            background-color: #fff;
-            display: flex;
-            justify-content: space-between;
+        .sticky-modal-header {
+            z-index: 4;
 
-            .dismiss-icon {
-                cursor: pointer;
-                color: #acacac;
+            .modal-header {
+                padding: 9px 12px;
+                border-radius: 4px 4px 0 0;
+                background-color: #fff;
+                display: flex;
+                justify-content: space-between;
     
-                &:hover {
-                    color: #8e8e8e;
+                .dismiss-icon {
+                    cursor: pointer;
+                    color: #acacac;
+        
+                    &:hover {
+                        color: #8e8e8e;
+                    }
                 }
             }
         }

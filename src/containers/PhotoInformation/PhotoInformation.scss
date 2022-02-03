@@ -1,18 +1,36 @@
 .photo-information {
     .photo-container {
+        position: relative;
+        top: 0;
+        right: 0;
+        z-index: 2;
         margin: 0 auto;
         text-align: center;
+        width: 60%;
+        cursor: zoom-in;
 
-        .zoom-in {
-           cursor: zoom-out;
-           width: 100%;
-           height: auto;
+        &.zoomed {
+            cursor: zoom-out;
+            width: 100%;
         }
 
-        .zoom-out {
-            cursor: zoom-in;
-            width: 60%;
-            height: auto;
+        .zoom-icon {
+            opacity: 0;
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            z-index: 3;
+            color: #acacac;
+        }
+
+        &:hover {
+            .zoom-icon {
+                opacity: 1;
+            }
+        }
+
+        img {
+            width: 100%;
         }
     }
 }
