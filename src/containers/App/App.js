@@ -4,6 +4,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import { photosFetchRequested, morePhotosFetchRequested } from '../../actions/photos';
 import HomePage from '../HomePage/HomePage';
 import PhotoInformation from '../PhotoInformation/PhotoInformation';
+import { OFFSET_Y } from '../../helpers/constants';
 
 const App = () => {
   const location = useLocation();
@@ -13,7 +14,7 @@ const App = () => {
   let page = 1;
 
   const handleScroll = useCallback(() => {
-    if ((window.innerHeight + window.pageYOffset + 400) >= (document.body.offsetHeight + 400)) {
+    if ((window.innerHeight + window.pageYOffset + OFFSET_Y) >= (document.body.offsetHeight + OFFSET_Y)) {
         page++;
         dispatch(morePhotosFetchRequested(page));
     }

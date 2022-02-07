@@ -1,16 +1,19 @@
-import { DEFAULT_PAGE, URL, KEY } from './photos';
-
-const basicURL = `${URL}?client_id=${KEY}`;
+import { STATUS_OK } from './statuses';
 
 const Api = {
-    fetchPhotos: async(page) => {
-        const defaultPage = !page ? DEFAULT_PAGE : page;
-        const response = await fetch(`${basicURL}&page=${defaultPage}`);
-        const data = await response.json();
+    get: async(url = '') => {
+        const data = await fetch(url).then(
+            response => {
+                if (response.status === STATUS_OK) {
+                    return response.json().then(data => data);
+                }
 
-        if (response.status >= 400) {
-            throw new Error(data.errors);
-        }
+                return {
+                    status: response.status
+                }
+            }
+        )
+        .catch(error => console.log(error))
 
         return data;
     }
