@@ -14,7 +14,7 @@ const App = () => {
   let page = 1;
 
   const handleScroll = useCallback(() => {
-    if ((window.innerHeight + window.pageYOffset + OFFSET_Y) >= (document.body.offsetHeight + OFFSET_Y)) {
+    if ((window.innerHeight + window.pageYOffset + OFFSET_Y) >= (document.body.offsetHeight)) {
         page++;
         dispatch(morePhotosFetchRequested(page));
     }
