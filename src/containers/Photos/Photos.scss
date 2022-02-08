@@ -1,9 +1,21 @@
+@import '../../themes/styles/variables/colors.scss';
+
 .photos-container {
     width: 70%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     margin: 0 auto;
+
+    .bg-hover {
+        opacity: 0;
+        background-color: rgba(0, 0, 0, .4);
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 99%;
+    }
 
     .photo-block {
         flex: 30.3%;
@@ -22,36 +34,101 @@
                 right: 0;
 
                 .photo-content-header {
-                    width: 100%;
+                    width: 90%;
                     display: flex;
                     justify-content: space-between;
                     position: absolute;
                     top: 0;
-                    right: 0;
+                    left: 15px;
+                    padding-top: 15px;
+                    opacity: 0;
+
+                    .sponsored {
+                        color: $white;
+                        opacity: .8;
+                        transition: opacity .3s;
+                        cursor: pointer;
+
+                        &:hover {
+                            opacity: 1;
+                        }
+                    }
 
                     .photo-content-buttons {
                         display: flex;
+
+                        .like-button {
+                            margin-right: 10px;
+                        }
                     }
                 }
 
                 .photo-content-footer {
-                    width: 100%;
+                    width: 90%;
                     position: absolute;
                     bottom: 0;
-                    left: 0;
+                    left: 15px;
                     display: flex;
                     justify-content: space-between;
+                    padding-bottom: 15px;
 
                     .right-block {
+                        display: flex;
+                        justify-content: space-between;
+
                         .sponsor-image {
                             width: 32px;
                             height: 32px;
+                            overflow: hidden;
+                            border-radius: 50%;
+                            text-align: center;
+                            
+                            img {
+                                width: 100%;
+                            }
                         }
+
+                        .sponsor-description {
+                            margin-left: 10px;
+
+                            .sponsor-name,
+                            .sponsor-tagline {
+                                display: block;
+                                color: $white;
+                                text-decoration: none;
+                                opacity: .8;
+                                transition: opacity .3s;
+
+                                &:hover {
+                                    opacity: 1;
+                                }
+                            }
+                        }
+                    }
+
+                    .left-block {
+                        opacity: 0;
                     }
                 }
 
                 .flex-left {
                     justify-content: end;
+                }
+
+                &:hover {
+                    .bg-hover {
+                        opacity: 1;
+                    }
+
+                    .photo-content-header {
+                        opacity: 1;
+                    }
+
+                    .photo-content-footer {
+                        .left-block {
+                            opacity: 1;
+                        }
+                    }
                 }
             }
             

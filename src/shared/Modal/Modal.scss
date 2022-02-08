@@ -1,3 +1,5 @@
+@import '../../themes/styles/variables/colors.scss';
+
 [data-reach-dialog-overlay] {
     cursor: zoom-out;
 
@@ -20,10 +22,10 @@
     
                 .dismiss-icon {
                     cursor: pointer;
-                    color: #acacac;
+                    color: $light-gray;
         
                     &:hover {
-                        color: #8e8e8e;
+                        color: $dark-gray;
                     }
                 }
             }

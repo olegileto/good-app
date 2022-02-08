@@ -14,8 +14,9 @@ const Photo = ({
 
     return (
         <div className='photo-content'>
+             <div className='bg-hover' />
             <div className={`photo-content-header${isSponsored}`}>
-                {sponsorship && <span>Sponsored</span>}
+                {sponsorship && <span className='sponsored'>Sponsored</span>}
                 <div className='photo-content-buttons'>
                     <LikeButton />
                     <AddToButton />
