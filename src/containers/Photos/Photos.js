@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom';
 import Photo from '../../components/Photo/Photo';
 import { getPhotos } from '../../selectors/photos';
 import { chunkDataIntoColumns } from '../../helpers/utils';
-import { INDEXES } from '../../helpers/constants';
+import { INDEXES, COLUMNS_SIZE } from '../../helpers/constants';
 
 import './Photos.scss';
 
 const Photos = () => {
     const location = useLocation();
     const photos = useSelector(getPhotos);
-    const chunkedData = chunkDataIntoColumns(photos, 3)
+    const chunkedData = chunkDataIntoColumns(photos, COLUMNS_SIZE)
 
     const renderColumns = (columns, index) => {
         return (
