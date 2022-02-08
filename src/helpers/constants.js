@@ -5,4 +5,4 @@ export const COLUMNS_COUNT = 4;
 
 export const BASIC_URL = `${URL}?client_id=${KEY}`;
 
-export const OFFSET_Y = 400;
+export const OFFSET_Y = 700;
