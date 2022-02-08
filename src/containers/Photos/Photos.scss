@@ -1,18 +1,24 @@
 .photos-container {
-    width: 60%;
-    columns: 2;
-    column-gap: 24px;
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     margin: 0 auto;
 
-    .photo {
-        width: 300px;
-        height: 400px;
-        margin-bottom: 24px;
-        overflow: hidden;
-        cursor: zoom-in;
-        
-        img {
-            width: 100%;
+    .photo-block {
+        flex: 30.3%;
+        height: auto;
+        margin: 10px 10px 0;
+
+        .photo {
+            overflow: hidden;
+            cursor: zoom-in;
+            margin-bottom: 10px;
+            display: block;
+            
+            img {
+                width: 100%;
+            }
         }
     }
 }

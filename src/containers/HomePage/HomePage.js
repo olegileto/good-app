@@ -9,7 +9,7 @@ const HomePage = () => {
     let page = 1;
 
     const handleScroll = useCallback(() => {
-        if ((window.innerHeight + window.pageYOffset + OFFSET_Y) >= (document.body.offsetHeight)) {
+        if ((window.innerHeight + window.pageYOffset + 2500) >= (document.body.offsetHeight)) {
             page++
             dispatch(morePhotosFetchRequested(page));
         }
