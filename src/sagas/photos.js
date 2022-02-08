@@ -1,4 +1,4 @@
-import { call, put, delay, takeLatest, takeEvery } from 'redux-saga/effects';
+import { call, put, takeLatest, takeEvery } from 'redux-saga/effects';
 import { 
     morePhotosFetchFailed, 
     morePhotosFetchSucceeded, 
@@ -27,7 +27,6 @@ function* fetchMorePhotos(action) {
     try {
         const photos = yield call(Api.get, url)
         
-        delay(200);
         yield put(morePhotosFetchSucceeded(photos));
     } catch(error) {
         yield put(morePhotosFetchFailed(error.message));
