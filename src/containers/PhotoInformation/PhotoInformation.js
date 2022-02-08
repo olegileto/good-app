@@ -38,6 +38,7 @@ const PhotoInformation = () => {
                 <div className={`photo-container${zoomedClass}`}>
                     {zoomedIcon}
                     <Photo 
+                        isModal
                         photo={photo} 
                         onClick={handleZoomPhoto}
                         isZoomed={isZoomed}

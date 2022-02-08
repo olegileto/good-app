@@ -1,7 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import Photo from '../../components/Photo/Photo';
 import { getPhotos } from '../../selectors/photos';
 import { chunkDataIntoColumns } from '../../helpers/utils';
@@ -18,14 +17,9 @@ const Photos = () => {
         return (
             columns[index]?.map(column => {
                 return (
-                    <Link
-                        key={column.blur_hash + column.id}
-                        className='photo'
-                        to={{pathname: `/photo/${column.id}`}}
-                        state={{backgroundLocation: location }}
-                    >
-                            <Photo photo={column} />
-                    </Link>
+                    <div className='photo' key={column.blur_hash + column.id}>
+                        <Photo photo={column} location={location}/>
+                    </div>
                 )
             })
         )

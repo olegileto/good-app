@@ -1,6 +1,9 @@
 @import '../../themes/styles/variables/colors.scss';
+@import '../../themes/styles/variables/fonts.scss';
+
 
 .photos-container {
+    font-family: 'Lato Regular';
     width: 70%;
     display: flex;
     flex-direction: row;
@@ -14,7 +17,7 @@
         top: 0;
         right: 0;
         width: 100%;
-        height: 99%;
+        height: 99.3%;
     }
 
     .photo-block {
