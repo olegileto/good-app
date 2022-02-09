@@ -7,11 +7,12 @@ import {
 } from '../actions/photos';
 import Api from '../helpers/serviceWorkers';
 import { MORE_PHOTOS_FETCH_REQUESTED, PHOTOS_FETCH_REQUESTED } from '../reducers/photos';
-import { BASIC_URL, DEFAULT_PAGE } from '../helpers/constants';
+import { DEFAULT_PAGE } from '../helpers/constants';
+import { BASIC_PHOTOS_URL } from '../helpers/urls';
 
 function* fetchPhotos() {
     try {
-        const photos = yield call(Api.get, BASIC_URL);
+        const photos = yield call(Api.get, BASIC_PHOTOS_URL);
 
         yield put(photosFetchSucceeded(photos));
     } catch(error) {
@@ -22,7 +23,7 @@ function* fetchPhotos() {
 function* fetchMorePhotos(action) {
     const { page } = action;
     const defaultPage = page || DEFAULT_PAGE;
-    const url = `${BASIC_URL}&page=${defaultPage}`;
+    const url = `${BASIC_PHOTOS_URL}&page=${defaultPage}`;
 
     try {
         const photos = yield call(Api.get, url)

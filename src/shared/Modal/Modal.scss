@@ -4,6 +4,8 @@
     cursor: zoom-out;
 
     .modal-dialog-window {
+        background-color: $black;
+        border: 1px solid $light-gray;
         border-radius: 4px;
         width: 85%;
         padding: 0;
@@ -16,7 +18,7 @@
             .modal-header {
                 padding: 9px 12px;
                 border-radius: 4px 4px 0 0;
-                background-color: #fff;
+                background-color: $black;
                 display: flex;
                 justify-content: space-between;
     
