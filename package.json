@@ -26,6 +26,7 @@
     "reselect": "^4.1.5",
     "saga": "^4.0.0-alpha",
     "styled-components": "^5.3.3",
+    "unsplash-js": "^7.0.15",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

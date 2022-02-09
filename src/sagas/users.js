@@ -1,20 +1,21 @@
 import { call, put, takeLatest } from 'redux-saga/effects'; 
-import { usersFetchSucceeded, usersFetchFailed } from '../actions/users';
-import { USERS_FETCH_REQUESTED } from '../reducers/users';
+import { userProfileFetchSucceeded, userProfileFetchFailed } from '../actions/users';
+import { USER_PROFILE_FETCH_REQUESTED } from '../reducers/users';
 import Api from '../helpers/serviceWorkers';
 import { BASIC_USERS_URL } from '../helpers/urls';
 
-function* fetchUsers() {
+function* fetchUserProfile(action) {
     try {
-        const users = yield call(Api.get, `${BASIC_USERS_URL}:Tezos`);
+        const userProfileUrl = BASIC_USERS_URL(action.username)
+        const userProfile = yield call(Api.get, userProfileUrl);
 
-        yield put (usersFetchSucceeded(users))
+        yield put (userProfileFetchSucceeded(userProfile))
 
     } catch(error) {
-        return usersFetchFailed(error.message);
+        return userProfileFetchFailed(error.message);
     }
 };
 
 export function* usersWatcherSaga() {
-    yield takeLatest(USERS_FETCH_REQUESTED, fetchUsers);
+    yield takeLatest(USER_PROFILE_FETCH_REQUESTED, fetchUserProfile);
 }

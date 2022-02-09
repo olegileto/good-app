@@ -1,21 +1,26 @@
-import { USERS_FETCH_SUCCEEDED, USRES_FETCH_FAILED, USERS_FETCH_REQUESTED } from '../reducers/users';
+import { 
+    USER_PROFILE_FETCH_SUCCEEDED, 
+    USRE_PROFILE_FETCH_FAILED, 
+    USER_PROFILE_FETCH_REQUESTED 
+} from '../reducers/users';
 
-export const usersFetchSucceeded = (users) => {
+export const userProfileFetchSucceeded = (userProfile) => {
     return {
-        type: USERS_FETCH_SUCCEEDED,
-        users
+        type: USER_PROFILE_FETCH_SUCCEEDED,
+        userProfile
     }
 };
 
-export const usersFetchFailed = (message) => {
+export const userProfileFetchFailed = (message) => {
     return {
-        type: USRES_FETCH_FAILED,
+        type: USRE_PROFILE_FETCH_FAILED,
         message
     }
 };
 
-export const usersFetchRequested = () => {
+export const userProfileFetchRequested = (username) => {
     return {
-        type: USERS_FETCH_REQUESTED
+        type: USER_PROFILE_FETCH_REQUESTED,
+        username
     }
 }

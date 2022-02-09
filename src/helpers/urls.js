@@ -8,4 +8,4 @@ export const BASIC_PHOTOS_URL = `${PHOTOS_URL}${CLIENT_ID}`;
 
 //Users URLs
 export const USERS_URL = `${UNSPLASH_URL}users/`;
-export const BASIC_USERS_URL = `${USERS_URL}${CLIENT_ID}`
+export const BASIC_USERS_URL = (usermane) => `${USERS_URL}${usermane}/${CLIENT_ID}`;
