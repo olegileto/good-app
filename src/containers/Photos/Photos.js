@@ -14,7 +14,6 @@ const Photos = () => {
     const photos = useSelector(selectPhotos);
     const isLoading = useSelector(selectLoader);
     const chunkedData = chunkDataIntoColumns(photos, COLUMNS_SIZE)
-    console.log('isLoading', isLoading);
 
     const renderColumns = (columns, index) => {
         return (
