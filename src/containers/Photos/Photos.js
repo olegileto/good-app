@@ -2,16 +2,19 @@ import React from 'react';
 import { useLocation } from 'react-router';
 import { useSelector } from 'react-redux';
 import Photo from '../../components/Photo/Photo';
-import { getPhotos } from '../../selectors/photos';
+import { selectPhotos, selectLoader } from '../../selectors/photos';
 import { chunkDataIntoColumns } from '../../helpers/utils';
 import { INDEXES, COLUMNS_SIZE } from '../../helpers/constants';
+import Spinner from '../../shared/Spinner/Spinner';
 
 import './Photos.scss';
 
 const Photos = () => {
     const location = useLocation();
-    const photos = useSelector(getPhotos);
+    const photos = useSelector(selectPhotos);
+    const isLoading = useSelector(selectLoader);
     const chunkedData = chunkDataIntoColumns(photos, COLUMNS_SIZE)
+    console.log('isLoading', isLoading);
 
     const renderColumns = (columns, index) => {
         return (
@@ -36,6 +39,7 @@ const Photos = () => {
                     </div>
                 )
             })}
+            {isLoading && <Spinner />}
         </div>
     )
 }

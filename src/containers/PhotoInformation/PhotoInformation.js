@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import ZoomOutMapIcon from '@mui/icons-material/ZoomOutMap';
 import ZoomInMapIcon from '@mui/icons-material/ZoomInMap';
 import { getPhotoById } from '../../helpers/utils';
-import { getPhotos } from '../../selectors/photos';
+import { selectPhotos } from '../../selectors/photos';
 import Modal from '../../shared/Modal/Modal';
 import Photo from '../../components/Photo/Photo';
 import './PhotoInformation.scss';
@@ -14,7 +14,7 @@ const PhotoInformation = () => {
 
     const navigate = useNavigate();
     const dismissRef = useRef(null);
-    const photos = useSelector(getPhotos);
+    const photos = useSelector(selectPhotos);
     const { id } = useParams();
 
     const photo = getPhotoById(id, photos);
@@ -23,6 +23,7 @@ const PhotoInformation = () => {
 
     const handleDismiss = () => navigate(-1);
     const handleZoomPhoto = () => setIsZoomed(!isZoomed);
+    
     const zoomedClass = isZoomed ? ' zoomed' : '';
     const zoomedIcon = isZoomed 
     ? <ZoomInMapIcon className='zoom-icon'/> 
