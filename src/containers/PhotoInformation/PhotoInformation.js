@@ -1,12 +1,14 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import ZoomOutMapIcon from '@mui/icons-material/ZoomOutMap';
 import ZoomInMapIcon from '@mui/icons-material/ZoomInMap';
+import { userProfileFetchRequested } from '../../actions/users';
 import { getPhotoById } from '../../helpers/utils';
 import { selectPhotos } from '../../selectors/photos';
 import Modal from '../../shared/Modal/Modal';
 import Photo from '../../components/Photo/Photo';
+
 import './PhotoInformation.scss';
 
 const PhotoInformation = () => {
@@ -16,8 +18,13 @@ const PhotoInformation = () => {
     const dismissRef = useRef(null);
     const photos = useSelector(selectPhotos);
     const { id } = useParams();
+    const dispatch = useDispatch();
 
     const photo = getPhotoById(id, photos);
+
+    useEffect(() => {
+        dispatch(userProfileFetchRequested(photo.user.username))
+    }, [dispatch, photo])
 
     if (!photo) return null;
 
